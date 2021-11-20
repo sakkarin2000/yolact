@@ -615,7 +615,7 @@ def evalimage(net: Yolact, path: str, save_path: str = 'test' ):
     batch = FastBaseTransform()(frame.unsqueeze(0))
     preds = net(batch)
     dirname = os.path.dirname(__file__)
-    directoryPath = os.path.join(dirname, '../output_temp_img')
+    directoryPath = os.path.join(dirname, 'output_temp_img')
     os.chdir(directoryPath)
     
     img_numpy = prep_display(preds, frame, None, None, undo_transform=False)
