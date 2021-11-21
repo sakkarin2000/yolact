@@ -52,7 +52,7 @@ def remove_img( path, img_name):
 async def predict_api(file: UploadFile = File(...)):
     try:
         suffix = file.filename.split(".")[-1] 
-        extension = suffix in ("jpg", "jpeg", "png")
+        extension = suffix in ("jpg", "jpeg", "png",'JPG','PNG','JPEG')
         print(suffix)
         print('hey')
         file.filename = f'{uuid.uuid4()}.{suffix}'
@@ -69,8 +69,8 @@ async def predict_api(file: UploadFile = File(...)):
           
     else: 
         try:
-            p = subprocess.Popen(f"python eval.py --trained_model=weights/yolact_plus_resnet50_papaya_weight.pth --config=yolact_resnet50_papaya_config --display_masks=False --score_threshold=0.8 --top_k=15 --image={img_path}/{file.filename}", stdout=subprocess.PIPE)
-        
+            p = subprocess.Popen(f"python eval.py --trained_model=weights/yolact_plus_resnet50_papaya_140_40000.pth --config=yolact_resnet50_papaya_config --display_masks=False --score_threshold=0.8 --top_k=15 --image={img_path}/{file.filename}", stdout=subprocess.PIPE)
+            # p = subprocess.Popen(f"python eval.py --trained_model=weights/yolact_plus_resnet50_papaya_weight.pth --config=yolact_resnet50_papaya_config --display_masks=False --score_threshold=0.8 --top_k=15 --image={img_path}/{file.filename}", stdout=subprocess.PIPE)
             (out,_)  = p.communicate()
         except:
             remove_img(img_path,file.filename)

@@ -173,8 +173,8 @@ papaya_dataset = dataset_base.copy({
     'train_images': 'C:/Users/Windows10/Desktop/Yolact/yolact/papaya_dataset/train/images/',
     'valid_info': 'C:/Users/Windows10/Desktop/Yolact/yolact/papaya_dataset/valid/coco_instances.json',
     'valid_images': 'C:/Users/Windows10/Desktop/Yolact/yolact/papaya_dataset/valid/images/',
-    'class_names': ('unripe', 'medium', 'ripe'),
-    'label_map': {1: 1, 2: 2, 3: 3, 4: 2}
+    'class_names': ('ripe', 'medium', 'unripe'),
+    'label_map': {1: 1, 2: 2, 3: 3}
 })
 
 # ----------------------- TRANSFORMS ----------------------- #

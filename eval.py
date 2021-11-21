@@ -627,11 +627,11 @@ def evalimage(net: Yolact, path: str, save_path: str = 'test' ):
     class_output = class_output.tolist()
     for i in class_output:
         if i == 0:
-            print('@unripe')
+            print('@ripe')
         elif i == 1:
             print('@medium')
         elif i == 2:
-            print('@ripe')
+            print('@unripe')
         else:
             print('@not_detect')
     print(path[-7:-4])
